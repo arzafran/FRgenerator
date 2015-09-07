@@ -1,0 +1,25 @@
+{
+  "name": "RFCreator",
+  "version": "0.0.1",
+  "description": "A tool to easily create functional requirements",
+  "main": "index.html",
+  "window": {
+    "title": "RFCreator",
+    "toolbar": true,
+    "frame": false,
+    "resizable": true,
+    "width": 800,
+    "height": 500,
+    "min_width": 400,
+    "min_height": 200
+  },
+  "webkit": {
+    "plugin": false,
+    "java": false
+  },
+  "author": "Franco Arza",
+  "license": "MIT",
+  "dependencies": {
+    "diskdb": "latest"
+  }
+}

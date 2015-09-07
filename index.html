@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="vendor/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script>
+  var nw = require('nw.gui');
+  var win = nw.Window.get();
+  win.isMaximized = false;
+  </script>
+</head>
+
+<body>
+  <header>
+    <ul>
+      <li>
+        <a href='#' title='Minimize' id='windowControlMinimize'></a>
+      </li>
+      <li>
+        <a href='#' title='Maximize' id='windowControlMaximize'></a>
+      </li>
+      <li>
+        <a href='#' title='Close' id='windowControlClose'></a>
+      </li>
+    </ul>
+  </header>
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12">
+        <h1 class="text-success text-center">Generador de Requisitos funcionales
+      </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addNew">Agregar Requisito <span class="glyphicon glyphicon-plus"></span> </button>
+          <a href="#" id="exportXls" type="button" class="btn btn-lg btn-default">Exportar a Excel</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row clearfix">
+      <table id="mainTable" class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Descripcion</td>
+            <td>Actores</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="vendor/js/jquery.min.js"></script>
+  <script src="vendor/js/bootstrap.min.js"></script>
+  <script src="vendor/js/jquery.validate.min.js"></script>
+  <script src="vendor/js/jquery.table2excel.min.js"></script>
+  <script src="js/winControl.js"></script>
+  <script src="js/main.js"></script>
+</body>
+<!-- MODAL ADD NEW -->
+<div class="modal fade" id="addNew" aria-labelledby="addNewLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Agregar requisito</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <form id="data">
+          <div class="form-group">
+            <label for="reqName">Nombre del Requisito</label>
+            <input type="text" class="form-control" id="reqName" name="reqName" placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <label for="reqDescription">Descripcion del Requisito</label>
+            <textarea type="text" class="form-control" id="reqDescription" name="reqDescription"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="reqUsers">Usuarios</label>
+            <input type="text" class="form-control" id="reqUsers" name="reqUsers" placeholder="Usuarios">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="pull-right btn btn-primary" id="addRow">Agregar</button>
+        <p class="pull-left text-danger hide" id="form-error">&nbsp; Campos incompletos</p>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+</html>
